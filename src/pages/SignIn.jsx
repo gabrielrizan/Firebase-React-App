@@ -1,10 +1,9 @@
-import React from "react";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
+import { toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
-import userEvent from "@testing-library/user-event";
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -12,7 +11,6 @@ function SignIn() {
     email: "",
     password: "",
   });
-
   const { email, password } = formData;
 
   const navigate = useNavigate();
@@ -29,14 +27,18 @@ function SignIn() {
 
     try {
       const auth = getAuth();
-      const userCredential = await signInWithEmailAndPassword(auth,email,password);
-      navigate("/");
+
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
       if (userCredential.user) {
         navigate("/");
       }
-
     } catch (error) {
-      console.log(error);
+      toast.error("Bad User Credentials");
     }
   };
 
@@ -44,7 +46,7 @@ function SignIn() {
     <>
       <div className="pageContainer">
         <header>
-          <p className="pageHeader">Welcome Back</p>
+          <p className="pageHeader">Welcome Back!</p>
         </header>
 
         <form onSubmit={onSubmit}>
@@ -60,7 +62,7 @@ function SignIn() {
           <div className="passwordInputDiv">
             <input
               type={showPassword ? "text" : "password"}
-              className="passwordInput "
+              className="passwordInput"
               placeholder="Password"
               id="password"
               value={password}
@@ -74,13 +76,15 @@ function SignIn() {
               onClick={() => setShowPassword((prevState) => !prevState)}
             />
           </div>
+
           <Link to="/forgot-password" className="forgotPasswordLink">
-            Forgot Password?
+            Forgot Password
           </Link>
+
           <div className="signInBar">
             <p className="signInText">Sign In</p>
             <button className="signInButton">
-              <ArrowRightIcon fill="#fff" width={24} height={24} />
+              <ArrowRightIcon fill="#ffffff" width="34px" height="34px" />
             </button>
           </div>
         </form>
