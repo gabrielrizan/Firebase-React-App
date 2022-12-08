@@ -15,62 +15,62 @@ function Navbar() {
     }
   };
 
-    return (
-      <footer className='navbar'>
-        <nav className='navbarNav'>
-          <ul className='navbarListItems'>
-            <li className='navbarListItem' onClick={() => navigate('/')}>
-              <ExploreIcon
-                fill={pathMatchRoute('/') ? '#2c2c2c' : '#8f8f8f'}
-                width={36}
-                height={36}
-              />
-              <p
-                className={
-                  pathMatchRoute('/')
-                    ? 'navbarListItemNameActive'
-                    : 'navbarListName'
-                }
-              >
-                Explore
-              </p>
-            </li>
-            <li className='navbarListItem' onClick={() => navigate('/offers')}>
-              <OfferIcon
-                fill={pathMatchRoute('/offers') ? '#2c2c2c' : '#8f8f8f'}
-                width={36}
-                height={36}
-              />
-              <p
-                className={
-                  pathMatchRoute('/offer')
-                    ? 'navbarListItemNameActive'
-                    : 'navbarListName'
-                }
-              >
-                Offer
-              </p>
-            </li>
-            <li className='navbarListItem' onClick={() => navigate('/profile')}>
-              <PersonOutlineIcon
-                fill={pathMatchRoute('/profile') ? '#2c2c2c' : '#8f8f8f'}
-                width={36}
-                height={36}
-                onClick={() => navigate('/profile')}
-              />
-              <p
-                className={
-                  pathMatchRoute('/profile')
-                    ? 'navbarListItemNameActive'
-                    : 'navbarListName'
-                }
-              >
-                Profile
-              </p>
-            </li>
-          </ul>
-        </nav>
-      </footer>
-    );
+  return (
+    <footer className='navbar'>
+      <nav className='navbarNav'>
+        <ul className='navbarListItems'>
+          <li className='navbarListItem' onClick={() => navigate('/')}>
+            <ExploreIcon
+              fill={pathMatchRoute('/') ? '#2c2c2c' : '#8f8f8f'}
+              width={36}
+              height={36}
+            />
+            <p
+              className={
+                pathMatchRoute('/')
+                  ? 'navbarListItemNameActive'
+                  : 'navbarListName'
+              }
+            >
+              Explore
+            </p>
+          </li>
+          <li className='navbarListItem' onClick={() => navigate('/offers')}>
+            <OfferIcon
+              fill={pathMatchRoute('/offers') ? '#2c2c2c' : '#8f8f8f'}
+              width={36}
+              height={36}
+            />
+            <p
+              className={
+                pathMatchRoute('/offer')
+                  ? 'navbarListItemNameActive'
+                  : 'navbarListName'
+              }
+            >
+              Offer
+            </p>
+          </li>
+          <li className='navbarListItem' onClick={() => navigate('/profile')}>
+            <PersonOutlineIcon
+              fill={pathMatchRoute('/profile') ? '#2c2c2c' : '#8f8f8f'}
+              width={36}
+              height={36}
+              onClick={() => navigate('/profile')}
+            />
+            <p
+              className={
+                pathMatchRoute('/profile')
+                  ? 'navbarListItemNameActive'
+                  : 'navbarListName'
+              }
+            >
+              Profile
+            </p>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  );
 }
 export default Navbar;
